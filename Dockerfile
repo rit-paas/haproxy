@@ -10,6 +10,7 @@ RUN \
   mkdir -p /usr/local/haproxy && \
   tar -zxvf /tmp/haproxy.tgz -C /usr/local/haproxy/ --strip-components 1 && \
   rm -f /tmp/haproxy.tgz && \
+  chmod -R 777 /var && \
   cd /usr/local/haproxy && \
   make \
   USE_LINUX_TPROXY=1 USE_ZLIB=1 \
