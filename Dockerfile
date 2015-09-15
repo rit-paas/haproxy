@@ -29,6 +29,6 @@ COPY container-files /
 
 ENV HAPROXY_CONFIG /etc/haproxy/haproxy.cfg
 
-EXPOSE 80080 80443
+EXPOSE 10080 10443
 
 ENTRYPOINT ["/bootstrap.sh"]
