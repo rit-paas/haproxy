@@ -1,5 +1,5 @@
 FROM centos:centos7
-MAINTAINER Marcin Ryzycki marcin@m12.io, Przemyslaw Ozgo linux@ozgo.info
+MAINTAINER Udo Urbantschitsch udo@urbantschitsch.com
 
 ENV HAPROXY_VERSION=1.5.14
 
@@ -24,12 +24,14 @@ RUN \
   yum clean all && \
   rm -rf /usr/local/haproxy && \
   mkdir -p /var/lib/haproxy && \
-  groupadd haproxy && adduser haproxy -g haproxy && chown -R haproxy:haproxy /var/lib/haproxy
+  groupadd -g 1002 haproxy && adduser -u 1002 haproxy -g haproxy && chown -R haproxy:haproxy /var/lib/haproxy
 
 COPY container-files /
 
 ENV HAPROXY_CONFIG /etc/haproxy/haproxy.cfg
 
 EXPOSE 10080 10443
+
+USER 1002
 
 ENTRYPOINT ["/bootstrap.sh"]
