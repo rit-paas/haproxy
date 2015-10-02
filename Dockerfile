@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM openshift/base-centos7
 MAINTAINER Udo Urbantschitsch udo@urbantschitsch.com
 
 ENV HAPROXY_VERSION=1.5.14
